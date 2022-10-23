@@ -1,0 +1,157 @@
+* {
+  margin: 0;
+  padding: 0;
+  /* ie盒子模型，设置的width包含border padding，实际content宽高需要减去border padding */
+  box-sizing: border-box;
+}
+
+body {
+  height: 100vh;
+  background-color: #111;
+  display: flex;
+  justify-content: center;
+  /* 单行侧轴子元素排列 */
+  align-items: center;
+}
+
+.container {
+  position: relative;
+  /* width: 350px;
+  height: 350px; */
+  /* background-color: pink; */
+}
+
+
+.container .circle {
+  position: absolute;
+  border-radius: 50%;
+  /* 注释 */
+  pointer-events: none;
+  /* 注释 */
+  animation: 2s ease-in infinite alternate;
+
+}
+
+.container .circle:nth-child(1) {
+  width: 180px;
+  height: 180px;
+  top: -60px;
+  left: -60px;
+  background: linear-gradient(#e524c3, #8626b2);
+  animation-name: move-up;
+}
+
+@keyframes move-up {
+  to {
+    transform: translateY(-15px);
+  }
+}
+
+.container .circle:nth-child(2) {
+  width: 120px;
+  height: 120px;
+  bottom: -20px;
+  right: -20px;
+  background: linear-gradient(#d64612, #e48307);
+  animation-name: move-down;
+}
+
+@keyframes move-down {
+  to {
+    transform: translateY(15px);
+  }
+}
+
+.clock {
+  width: 350px;
+  height: 350px;
+  /* 通过flex布局，将里面的div 垂直水平居中 */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 2px solid rgba(255, 255, 255, .1);
+  border-radius: 50%;
+  /* 注释：backdrop-filter为一个元素后面区域添加图形效果(如模糊或颜色偏移) */
+  backdrop-filter: blur(15px);
+  background: rgba(255, 255, 255, .05);
+  box-shadow: 0 0 30px rgba(0, 0, 0, .3);
+}
+
+.clock .clock-bg img {
+  width: 100%;
+  height: 100%;
+}
+
+.clock::before {
+  content: '';
+  /* 当不加定位时，无法实现居中对齐，伪元素会占有原来的位置 */
+  position: absolute;
+  width: 15px;
+  height: 15px;
+  background-color: #fff;
+  border-radius: 50%;
+  z-index: 15;
+}
+
+.hour,
+.minute,
+.second {
+  position: absolute;
+}
+
+.clock .hour {
+  width: 160px;
+  height: 160px;
+  /* background: red; */
+}
+
+.clock .minute {
+  width: 200px;
+  height: 200px;
+  /* background: green; */
+}
+
+.clock .second {
+  width: 240px;
+  height: 240px;
+  /* background: blue; */
+}
+
+.clock .hour,
+.clock .minute,
+.clock .second {
+  display: flex;
+  justify-content: center;
+  /* border-radius: 50%; */
+  /* position: absolute; */
+}
+
+.clock .hour::before {
+  content: '';
+  /* position: absolute; */
+  width: 8px;
+  height: 80px;
+  background: #ff3d68;
+  z-index: 10;
+  border-radius: 10px;
+}
+
+.clock .minute::before {
+  content: '';
+  /* position: absolute; */
+  width: 5px;
+  height: 100px;
+  background: skyblue;
+  z-index: 11;
+  border-radius: 10px;
+}
+
+.clock .second::before {
+  content: '';
+  /* position: absolute; */
+  width: 2px;
+  height: 140px;
+  background: #fff;
+  z-index: 12;
+  border-radius: 10px;
+}

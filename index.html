@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+  <div class="container">
+    <div class="circle"></div>
+    <div class="circle"></div>
+
+    <div class="clock">
+      <!-- clock里面的元素：指针、表盘等都都是叠放在一起的，因此需要将定位设置成absolute 不占有原来的位置 -->
+      <!-- 为什么要多放一层bg -->
+      <div class="clock-bg">
+        <img src="image/clock.png" alt="...">
+      </div>
+      <div class="hour">
+        <!-- <span class="hr" id="hr"></span> -->
+      </div>
+      <div class="minute">
+        <!-- <span class="min" id="min"></span> -->
+      </div>
+      <div class="second">
+        <!-- <span class="sec" id="sec"></span> -->
+      </div>
+    </div>
+  </div>
+  <script type="text/javascript" src="js/index.js"></script>
+</body>
+
+</html>
